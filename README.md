@@ -3,13 +3,13 @@
 ___________________________________
 
 Rapid Prototyping Unit
-2D-Idle-Game
-
 ___________________________________
 
 Instructions:
 1. Fork this repo and use this project as your base
 2. Complete the given objectives for your prototype
+
+# 2D-Idle-Game
 
 - There is an object/item the player is able to click to gain money (or something else). The object/item can also passively gain money.
 - There must be at least 3 upgrades the player can purchase.
