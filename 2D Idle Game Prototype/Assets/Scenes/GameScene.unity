@@ -273,7 +273,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 247396663}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2004540070}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: onTeleportClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &247396663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1677,7 +1689,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1324478486}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2004540070}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: onMorePointsClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1324478486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1966,7 +1990,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1995597830}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2004540070}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: OnFasterClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1995597830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2038,6 +2074,7 @@ MonoBehaviour:
   endingPoint: {fileID: 1940715356}
   Snail: {fileID: 663021104}
   points: 0
+  pointsLabel: {fileID: 1134576186}
 --- !u!4 &2004540071
 Transform:
   m_ObjectHideFlags: 0

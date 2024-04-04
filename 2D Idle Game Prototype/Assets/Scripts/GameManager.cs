@@ -9,62 +9,76 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject endingPoint;
     [SerializeField] GameObject Snail;
     [SerializeField] float points = 0;
-    private float morePoints = 0.01f;
-    private float alphaValue = 0.03f;
+    [SerializeField] TMP_Text pointsLabel;
+    private float morePoints = 0.5f;
+    private float alphaValue = 0.0001f;
     private bool movingRight = true;
     // Update is called once per frame
     void Update()
     {
 
-        if (Snail.transform.position.x >= startingPoint.transform.position.x && Snail.transform.position.x <= endingPoint.transform.position.x)  
+        if (movingRight)
         {
-            if (Snail.transform.position.x == startingPoint.transform.position.x)
-            {
-                Snail.GetComponent<SpriteRenderer>().flipX = false;
-                movingRight = true;
-            }
-            if(Snail.transform.position.x == endingPoint.transform.position.x)
+            if (Snail.transform.position.x >= endingPoint.transform.position.x)
             {
                 Snail.GetComponent<SpriteRenderer>().flipX = true;
                 movingRight = false;
             }
-            if (movingRight) 
-            {
-                Snail.transform.position = Vector3.Lerp(Snail.transform.position, endingPoint.transform.position, alphaValue);
-            }
-            if (!movingRight)
-            {
-                Snail.transform.position = Vector3.Lerp(Snail.transform.position, startingPoint.transform.position, alphaValue);
-            }
-            points += morePoints;
+            Snail.transform.position = Vector3.Lerp(Snail.transform.position, endingPoint.transform.position, alphaValue);
         }
-        
+        else
+        {
+            if (Snail.transform.position.x <= startingPoint.transform.position.x)
+            {
+                Snail.GetComponent<SpriteRenderer>().flipX = false;
+                movingRight = true;
+            }
+            Snail.transform.position = Vector3.Lerp(Snail.transform.position, startingPoint.transform.position, alphaValue);
+        }
 
+        points += morePoints;
+        pointsLabel.text = "Points: " + points.ToString();
     }
 
     public void OnFasterClicked()
     {
         if (points > 100)
         {
-            alphaValue += 0.02f;
+            alphaValue += 0.0005f;
             points -= 100;
         }
     }
 
     public void onMorePointsClicked()
     {
-        if (points > 500)
+        if (points > 1000)
         {
-            morePoints += 0.03f;
-            points -=500;
+            morePoints += 0.1f;
+            points -=1000;
         }
     }
 
     public void onTeleportClicked()
     {
-        if (points > 1000)
+        if (points > 500)
         {
-            Snail.transform.Translate(3, 0, 0);
+            if (movingRight)
+            {
+                Snail.transform.Translate(3, 0, 0);
+            }
+            if(!movingRight)
+            {
+                Snail.transform.Translate(-3, 0, 0);
+            }
+            if (Snail.transform.position.x < 0)
+            {
+                Snail.transform.position = new Vector3(0, 0, 0);
+            }
+            if(Snail.transform.position.x > 16)
+            {
+                Snail.transform.position = new Vector3(16, 0, 0);
+            }
+            points -= 500;
         }
     }
 
